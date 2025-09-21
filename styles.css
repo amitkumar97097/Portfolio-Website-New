@@ -789,6 +789,57 @@ nav {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
+.volunteering-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.volunteering-card {
+    background: linear-gradient(135deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF);
+    background-size: 400% 400%;
+    border-radius: 20px;
+    padding: 25px 20px;
+    width: 300px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+.volunteering-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+}
+
+.volunteering-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.volunteering-info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: white;
+}
+
+/* Animated gradient background */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .volunteering-card {
+        width: 90%;
+    }
+}
 
 .contact-links {
   display: flex;
