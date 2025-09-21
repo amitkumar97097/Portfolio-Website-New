@@ -520,11 +520,12 @@ nav {
   text-align: center;
 }
 
-
 /* Blog Section */
 #blog {
   padding: 80px 0;
   background-color: var(--light-alt);
+  position: relative;
+  overflow: hidden;
 }
 
 .blog-cards {
@@ -535,18 +536,63 @@ nav {
 }
 
 .blog-card {
-  background-color: white;
+  position: relative;
+  background: white;
   border-radius: 15px;
   padding: 25px 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
   overflow: hidden;
+  z-index: 1;
+}
+
+/* Gradient background behind the card */
+.blog-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    270deg,
+    #ff00ff,
+    #00ffff,
+    #ffcc00,
+    #ff0000,
+    #00ff00,
+    #0000ff
+  );
+  background-size: 1200% 1200%;
+  transform: rotate(45deg);
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  z-index: -1;
+}
+
+/* Show gradient animation on hover */
+.blog-card:hover::before {
+  opacity: 1;
+  animation: colorfulGradientMove 8s ease infinite;
 }
 
 .blog-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  color: white;
+}
+
+.blog-title,
+.blog-excerpt,
+.blog-link {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.blog-card:hover .blog-title,
+.blog-card:hover .blog-excerpt,
+.blog-card:hover .blog-link {
+  color: white;
 }
 
 .blog-title {
@@ -570,18 +616,19 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .blog-link:hover {
-  color: var(--primary-light);
-  transform: translateY(-2px);
+  transform: translateX(3px);
 }
 
 /* Testimonials Section */
 #testimonials {
   padding: 80px 0;
   background-color: var(--light);
+  position: relative;
+  overflow: hidden;
 }
 
 .testimonial-cards {
@@ -592,17 +639,56 @@ nav {
 }
 
 .testimonial-card {
-  background-color: white;
+  position: relative;
+  background: white;
   border-radius: 15px;
   padding: 30px 25px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    270deg,
+    #ff00ff,
+    #00ffff,
+    #ffcc00,
+    #ff0000,
+    #00ff00,
+    #0000ff
+  );
+  background-size: 1200% 1200%;
+  transform: rotate(45deg);
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  z-index: -1;
+}
+
+/* Gradient appears when hovering */
+.testimonial-card:hover::before {
+  opacity: 1;
+  animation: colorfulGradientMove 10s ease infinite;
 }
 
 .testimonial-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  color: white;
+}
+
+.testimonial-card p,
+.testimonial-card h4 {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
 }
 
 .testimonial-card p {
@@ -618,9 +704,28 @@ nav {
   color: var(--primary);
 }
 
-/* Responsive for Blog & Testimonials */
+.testimonial-card:hover p,
+.testimonial-card:hover h4 {
+  color: white;
+}
+
+/* Gradient Animation Keyframes */
+@keyframes colorfulGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive for mobile */
 @media (max-width: 768px) {
-  .blog-cards, .testimonial-cards {
+  .blog-cards,
+  .testimonial-cards {
     grid-template-columns: 1fr;
   }
 }
