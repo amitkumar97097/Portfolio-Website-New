@@ -148,8 +148,8 @@ nav {
 
 /* Updated Profile Image Container - Square Border Removed */
 .profile-img-container {
-  width: 300px;
-  height: 300px;
+  width: 301px;
+  height: 301px;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
