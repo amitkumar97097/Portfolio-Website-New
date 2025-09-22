@@ -896,17 +896,78 @@ nav {
   color: var(--primary);
 }
 
-/* Footer */
-footer {
-  padding: 40px 0;
-  text-align: center;
-  border-top: 1px solid var(--gray-light);
+/* Footer Styling */
+.footer {
+  background-color: #0f172a; /* Dark Navy */
+  color: #f8fafc; /* Light Text */
+  padding: 20px 0;
+  font-size: 14px;
 }
 
-footer p {
-  color: var(--gray);
-  font-size: 0.9rem;
+.footer .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Wrap for mobile */
+  text-align: center;
+  gap: 15px;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1 1 250px; /* Flexible for responsiveness */
+}
+
+.footer p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.footer a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #0ea5e9;
+  text-decoration: underline;
+}
+
+/* Footer Right Links */
+.footer-right {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-link {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-right {
+    flex-direction: row;
+    gap: 15px;
+  }
+}
+
 
 /* Floating Action Button */
 .floating-action-btn {
