@@ -885,8 +885,8 @@ nav {
 
 /* Footer Section */
 .footer {
-  background-color: #FFF8E7;
-  color: #f8fafc;
+  background-color: #000000; /* Black footer */
+  color: #ffffff;           /* White text */
   padding: 30px 0;
   margin-top: 0; /* Ensures footer sits directly below contact section */
 }
@@ -919,14 +919,14 @@ nav {
 }
 
 .footer-link {
-  color: #38bdf8;
+  color: #38bdf8; /* Tailwind blue-400 style */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #0ea5e9;
+  color: #0ea5e9; /* Tailwind blue-500 style */
 }
 
 /* Responsive Design */
